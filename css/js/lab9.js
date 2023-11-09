@@ -304,15 +304,15 @@ button.onclick=()=>{
 }
 
 const cardImages = [
-    './img/6.jpg',
-    './img/7.jpg',
-    './img/8.jpg',
-    './img/9.jpg',
-    './img/10.jpg',
-    './img/Валет.jpg',
-    './img/Дама.jpg',
-    './img/Король.jpg',
-    './img/Туз.jpg',
+    './6.jpg',
+    './7.jpg',
+    './8.jpg',
+    './9.jpg',
+    './10.jpg',
+    './Валет.jpg',
+    './Дама.jpg',
+    './Король.jpg',
+    './Туз.jpg',
 ];
 
 function create(num, container, table) {
