@@ -9,7 +9,7 @@ const form = document.querySelector('#form');
     form.style.left = '50%';
     form.style.transform = 'translate(-50%, -50%)';
     form.style.backgroundColor = 'rgba(0,0,0,0.5)';
-    form.style.transition = ' 0.1s';
+    form.style.transition = ' 0.5s';
     form.style.border = '1vh solid rgba(0,0,0,0)';
     form.style.filter ='blur(4px)';
 
@@ -23,11 +23,13 @@ const winWin = document.querySelector('#windowWin');
     winWin.style.fontSize = '2.5vw';
     winWin.style.textAlign = 'center';
     winWin.style.alignItems = 'center';
-    winWin.style.paddingTop = '10%';
     winWin.style.width = '40%';
-    winWin.style.height = '30%';
+    winWin.style.height = '50%';
     winWin.style.border='2px solid #000000';
     winWin.style.color = '#ffffff';
+    winWin.style.display = 'flex'; 
+    winWin.style.justifyContent = 'center'; 
+    winWin.style.alignItems = 'center';
 
 const windowInput = document.querySelector('#window');
     windowInput.style.opacity = 1;
@@ -212,20 +214,18 @@ button.addEventListener('mouseout', ()=>{
     });
 
 const user = document.querySelector('#user');
-    user.style.display = 'flex';
-    user.style.justifyContent = 'space-between';
     user.style.position = 'absolute';
     user.style.bottom = '0';
     user.style.width = '100%'; 
     user.style.height = '40%'; 
+    user.style.border = '1px solid #ffffff';
 
 const bot = document.querySelector('#bot');
-    bot.style.display = 'flex';
-    bot.style.justifyContent = 'space-between';
     bot.style.position = 'absolute';
     bot.style.top = '0';
     bot.style.width = '100%'; 
     bot.style.height = '40%';
+    bot.style.border = '1px solid #ffffff';
 
 const card = document.querySelectorAll('.card');  
     card.forEach((item)=>{
@@ -233,9 +233,6 @@ const card = document.querySelectorAll('.card');
         item.style.height = '100%';
         item.style.backgroundColor = 'rgba(255,255,255,0.1)';
     });
-
-const cardUser = document.querySelector('#user-card');
-const cardBot = document.querySelector('#bot-card');
 
 userButton.onclick=()=> {
     let name = userNameWindow.value;    
@@ -246,14 +243,16 @@ userButton.onclick=()=> {
             windowError.style.opacity = 0;
             windowError.style.zIndex = "-1";
         }, 2000);
-    }
-    else{
+    } else{
         nameUser.innerHTML = name;
         windowInput.style.opacity = 0;
         windowInput.style.zIndex = '-1';
         form.style.filter ='blur(0px)';
     }
 }
+
+const cardUser = document.querySelector('#user-card');
+const cardBot = document.querySelector('#bot-card');
 
 let clickCount = 0;
 button.onclick=()=>{
@@ -319,7 +318,7 @@ function create(num, container, table) {
     if (num >= 6 && num <= 14) {
         container.src = cardImages[num - 6];
         container.alt = getCardName(num);
-        container.classList.add('card-img');
+       // container.classList.add('card-img');
         container.style.width = '30%';
         container.style.height = '90%';
         container.style.margin = '5px';
@@ -345,17 +344,26 @@ function getCardName(num) {
     };
     return cardNames[num];
 }
+
 function endGame(){
 	value1 = 0;
 	value2 = 0; 
     clickCount = 0;
     countUser.innerHTML = '';
     countBot.innerHTML = '';
-    while (cardUser.firstChild) {
+    /*while (cardUser.firstChild) {
         cardUser.removeChild(cardUser.firstChild);
     }
     while (cardBot.firstChild) {
         cardBot.removeChild(cardBot.firstChild);
+    }*/
+    clearCard(cardBot);
+    clearCard(cardUser);
+}
+
+function clearCard(container){
+    while(container.firstChild){
+        container.removeChild(container.firstChild);
     }
 }
 
