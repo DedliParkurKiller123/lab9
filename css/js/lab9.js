@@ -216,16 +216,20 @@ button.addEventListener('mouseout', ()=>{
 const user = document.querySelector('#user');
     user.style.position = 'absolute';
     user.style.bottom = '0';
+    user.style.left = '50%';
+    user.style.transform = 'translateX(-50%)';
     user.style.width = '100%'; 
     user.style.height = '40%'; 
-    user.style.border = '1px solid #ffffff';
+    user.style.border = '0.1vh solid #ffffff';
 
 const bot = document.querySelector('#bot');
     bot.style.position = 'absolute';
     bot.style.top = '0';
+    bot.style.left = '50%';
+    bot.style.transform = 'translateX(-50%)';
     bot.style.width = '100%'; 
     bot.style.height = '40%';
-    bot.style.border = '1px solid #ffffff';
+    bot.style.border = '0.1vh solid #ffffff';
 
 const card = document.querySelectorAll('.card');  
     card.forEach((item)=>{
